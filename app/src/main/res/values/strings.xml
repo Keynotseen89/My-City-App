@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">My City App</string>
+    <string name="category_fragment_label">Categories</string>
+    <string name="coffee_shops">Coffee Shops</string>
+    <string name="restaurants">Restaurants</string>
+    <string name="dog_friendly">Dog Friendly Restaurants</string>
+    <string name="dog_parks">Dog Parks</string>
+    <string name="shopping_center">Shopping Center</string>
+    <string name="mad_lab_coffee">Mad Lab Coffee</string>
+    <string name="laidrey_coffee">Laidrey Coffee</string>
+    <string name="ten_speed_coffee">10 Speed Coffee</string>
+    <string name="the_boy_and_the_bear">The Boy and the Bear</string>
+    <string name="maru_coffee">Maru Coffee</string>
+    <string name="mad_lab_coffee_subtitle">Mad Lab Coffee was launched out of a basement in downtown LA</string>
+    <string name="laidre_coffee_subtitle">Stop by our cafe in Tarzana to sample our range of coffees alongside a menu of baked treats</string>
+    <string name="ten_speed_coffee_subtitle">Appealing to bicycle culture, this Calabasas and Santa Monica cafe does well-crafted espresso</string>
+    <string name="the_boy_and_the_bear_subtitle">he Boy and the Bear is steadily moving on an expansion path with locations in Redondo Beach</string>
+    <string name="maru_coffee_subtitle">An exercise in Korean minimalist design, Maru’s Los Feliz and the Arts District are incredibly pleasant places</string>
+    <string name="mad_lab_coffee_details">Mad Lab Coffee was launched out of a basement in downtown LA by creators Andrew Sinclair and Sarah Sinclair with a focus on quality and the neighborhood of Los Angeles. Mad Lab has become one of the most recognizable roasters in Los Angeles and the International coffee community focusing on quality, seasonal, and relational driven coffees. The focus for all of Mad Lab’s coffees is the pursuit of sweetness and fruitiness.</string>
+    <string name="laidre_coffee_details">Stop by our cafe in Tarzana to sample our range of coffees alongside a menu of baked treats, seasonal toasts, and more. We regularly host events throughout the month on our shop where we partner with local vendors, in addition to providing coffee bags, merchandise, and more for purchase in our cafe. We look forward to seeing you at Laidrey!</string>
+    <string name="ten_speed_coffee_details">Appealing to bicycle culture, this Calabasas and Santa Monica cafe does well-crafted espresso drinks and a light menu of teas and tonics to help cyclists to continue their routes. When in Santa Monica, the shop is a bright oasis to work or host in-person meetings or for a quick cup.</string>
+    <string name="the_boy_and_the_bear_details">The Boy and the Bear is steadily moving on an expansion path with locations in Redondo Beach, Westchester, Pasadena, Culver City, and a new cafe in Sherman Oaks. The warehouse-style interiors take on a cool, spacious, and serene vibe with plenty of well-crafted espresso drinks.</string>
+    <string name="maru_coffee_details">An exercise in Korean minimalist design, Maru’s Los Feliz and the Arts District are incredibly pleasant places to enjoy coffee in Los Angeles. The beans are roasted at its larger Arts District space and the Beverly Hills is a recent addition to secure a cup in the city.</string>
+</resources>
