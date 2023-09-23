@@ -42,11 +42,16 @@ import com.example.mycityapp.ui.theme.MyCityAppTheme
 
 
 @Composable
-private fun RecommendedList(
+fun RecommendedList(
     recommendation: List<Recommendation>,
     onClick: (Recommendation) -> Unit,
+    onBackPressed: () -> Unit,
     modifier: Modifier = Modifier
 ){
+    BackHandler {
+        onBackPressed()
+    }
+    //var scrollState = rememberScrollState()
     LazyColumn(
         contentPadding = PaddingValues(dimensionResource(R.dimen.padding_medium)),
         verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_medium)),
@@ -139,7 +144,7 @@ private fun RecommendedListImageItem(
 }
 
 @Composable
-private fun RecommendedListAndDetail(
+fun RecommendedListAndDetail(
     recommended: List<Recommendation>,
     selectedRecommendation: Recommendation,
     onClick: (Recommendation) -> Unit,
@@ -148,12 +153,14 @@ private fun RecommendedListAndDetail(
     Row(
         modifier = modifier
     ){
+        val activity = (LocalContext.current as Activity)
         RecommendedList(
             recommendation = recommended,
             modifier = Modifier.weight(2f),
+            onBackPressed = { activity.finish() },
             onClick = onClick
         )
-        val activity = (LocalContext.current as Activity)
+
         RecommendedDetail(
             selectedRecommendation = selectedRecommendation,
             modifier = Modifier.weight(3f),
@@ -238,6 +245,7 @@ fun RecommendedListPreview(){
         Surface{
             RecommendedList(
                 recommendation = RecommendationDataProvider.getRecommendation(),
+                onBackPressed = {},
                 onClick = {})
         }
     }
