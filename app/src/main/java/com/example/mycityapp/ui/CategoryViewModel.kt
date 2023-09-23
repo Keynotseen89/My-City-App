@@ -23,19 +23,19 @@ class CategoryViewModel: ViewModel() {
 
     fun updateCurrentCategory(selectCategory: Categories){
         _uiState.update {
-            it.copy(isShowingListPage = true)
+            it.copy(currentCategory = selectCategory)
         }
     }
 
-    fun navigateToListPage(){
+    fun navigateToCategoryListPage(){
         _uiState.update {
-            it.copy(isShowingListPage = true)
+            it.copy(isShowingCategoryListPage = true)
         }
     }
 
-    fun navigateToDetailPage(){
-        _uiState.update {
-            it.copy(isShowingListPage = true)
+    fun navigateToRecommendedPage(){
+        _uiState.update{
+            it.copy(isShowingCategoryListPage = false)
         }
     }
 }
@@ -43,5 +43,5 @@ class CategoryViewModel: ViewModel() {
 data class CategoryUiState(
     val categoryList: List<Categories> = emptyList(),
     val currentCategory: Categories = CategoryDataProvider.defaultCategory,
-    val isShowingListPage: Boolean = true
+    val isShowingCategoryListPage: Boolean = true,
 )
