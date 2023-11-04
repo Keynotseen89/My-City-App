@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">My City App</string>
     <string name="category_fragment_label">Categories</string>
+    <string name="recommended_fragment_label">Recommended</string>
     <string name="coffee_shops">Coffee Shops</string>
     <string name="restaurants">Restaurants</string>
     <string name="dog_friendly">Dog Friendly Restaurants</string>

@@ -27,7 +27,7 @@ class RecommendationViewModel: ViewModel() {
 
     fun navigateToRecommendedListPage(){
         _uiState.update{
-            it.copy(isShowingRecommendedListPage = false)
+            it.copy(isShowingRecommendedListPage = true)
         }
     }
     fun navigateToRecommendedDetailPage(){

@@ -14,7 +14,7 @@ object RecommendationDataProvider {
                 titleResourcesId = R.string.mad_lab_coffee,
                 subtitleResourceId = R.string.mad_lab_coffee_subtitle,
                 imageResourceId = R.drawable.coffee_category,
-                recommendedImageBanner = R.drawable.coffee_category,
+                recommendedImageBanner = R.drawable.coffee_category_banner,
                 recommendedDetails = R.string.mad_lab_coffee_details
             ),
             Recommendation(
@@ -22,7 +22,7 @@ object RecommendationDataProvider {
                 titleResourcesId = R.string.laidrey_coffee,
                 subtitleResourceId = R.string.laidre_coffee_subtitle,
                 imageResourceId = R.drawable.laidrey_coffee_cafe,
-                recommendedImageBanner = R.drawable.laidrey_coffee_cafe,
+                recommendedImageBanner = R.drawable.laidrey_coffee_cafe_banner,
                 recommendedDetails = R.string.laidre_coffee_details
             ),
             Recommendation(
@@ -30,7 +30,7 @@ object RecommendationDataProvider {
                 titleResourcesId = R.string.ten_speed_coffee,
                 subtitleResourceId = R.string.ten_speed_coffee_subtitle,
                 imageResourceId = R.drawable.ten_speed_coffee,
-                recommendedImageBanner = R.drawable.ten_speed_coffee,
+                recommendedImageBanner = R.drawable.ten_speed_coffee_banner,
                 recommendedDetails = R.string.ten_speed_coffee_details
             ),
             Recommendation(
@@ -38,7 +38,7 @@ object RecommendationDataProvider {
                 titleResourcesId = R.string.the_boy_and_the_bear,
                 subtitleResourceId = R.string.the_boy_and_the_bear_subtitle,
                 imageResourceId = R.drawable.the_boy_and_the_bear,
-                recommendedImageBanner = R.drawable.the_boy_and_the_bear,
+                recommendedImageBanner = R.drawable.the_boy_and_the_bear_banner,
                 recommendedDetails = R.string.the_boy_and_the_bear_details
             ),
             Recommendation(
@@ -46,7 +46,7 @@ object RecommendationDataProvider {
                 titleResourcesId = R.string.maru_coffee,
                 subtitleResourceId = R.string.maru_coffee_subtitle,
                 imageResourceId = R.drawable.maru_coffee_shop,
-                recommendedImageBanner = R.drawable.maru_coffee_shop,
+                recommendedImageBanner = R.drawable.maru_coffee_shop_banner,
                 recommendedDetails = R.string.maru_coffee_details
             ),
         )

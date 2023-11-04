@@ -1,4 +1,5 @@
 import android.app.Activity
+import android.util.Log
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -57,6 +58,7 @@ fun RecommendedList(
         verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_medium)),
         modifier = modifier
     ){
+        Log.d("RECOMMENDED","Click as been made!")
         items(recommendation, key = { recommended -> recommended.id}) { recommended ->
             RecommendedListItem(
                 recommended = recommended,
@@ -71,7 +73,7 @@ fun RecommendedList(
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun RecommendedListItem(
+fun RecommendedListItem(
     recommended: Recommendation,
     onItemClick: (Recommendation) -> Unit,
     modifier: Modifier = Modifier
@@ -128,7 +130,7 @@ private fun RecommendedListItem(
  * TODO: Finish up RecommendedListImageItem
  */
 @Composable
-private fun RecommendedListImageItem(
+ fun RecommendedListImageItem(
     recommended: Recommendation,
     modifier: Modifier = Modifier){
     Box(
@@ -170,7 +172,7 @@ fun RecommendedListAndDetail(
 }
 
 @Composable
-private fun RecommendedDetail(
+fun RecommendedDetail(
     selectedRecommendation: Recommendation,
     onBackPressed: () -> Unit,
     modifier: Modifier = Modifier

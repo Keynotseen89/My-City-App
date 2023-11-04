@@ -1,6 +1,8 @@
 package com.example.mycityapp.ui
 
+import RecommendedDetail
 import RecommendedList
+import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -52,6 +54,9 @@ fun MyCityApp(
 ){
     val viewModel: CategoryViewModel = viewModel()
     val uiState by viewModel.uiState.collectAsState()
+
+    val recommendedViewModel: RecommendationViewModel = viewModel()
+    val recommendedUiState by recommendedViewModel.uiState.collectAsState()
     /**
      * Finish Windows Size List
      */
@@ -65,7 +70,7 @@ fun MyCityApp(
       topBar = {
           MyCityAppBar(
               isShowingCategoryListPage = uiState.isShowingCategoryListPage,
-              onBackButtonClick = { viewModel.navigateToCategoryListPage()},
+              onBackButtonClick = {},//{ viewModel.navigateToCategoryListPage()},
               windowSize = windowSize,
           )
       }
@@ -80,15 +85,27 @@ fun MyCityApp(
                 modifier = Modifier.padding(innerPadding)
             )
         } else {
-            RecommendedList(
-                recommendation = RecommendationDataProvider.getRecommendation(),
-                modifier = Modifier.padding(innerPadding),
-                onClick = {},
-                onBackPressed = {
-                    viewModel.navigateToCategoryListPage()
-                }
-            )
+            if (recommendedUiState.isShowingRecommendedListPage) {
+                //Need to revisit this section to clean up
+                RecommendedList(
+                    recommendation = recommendedUiState.recommendedList,
+                    modifier = Modifier.padding(innerPadding),
+                    onClick = {
+                        recommendedViewModel.updateCurrentRecommendation(it)
+                        recommendedViewModel.navigateToRecommendedDetailPage()
+                    },
+                    onBackPressed = {
+                        viewModel.navigateToCategoryListPage()
+                    }
+                )
+            } else {
+                RecommendedDetail(selectedRecommendation = recommendedUiState.currentRecommended,
+                    onBackPressed = {
+                        recommendedViewModel.navigateToRecommendedListPage()
+                    })
+            }
         }
+
     }
 }
 
@@ -106,7 +123,11 @@ fun MyCityAppBar(
     var isShowingRecommendedListPage = windowSize != WindowWidthSizeClass.Expanded && !isShowingCategoryListPage
     TopAppBar(
         title = {
-            Text(text = stringResource(R.string.category_fragment_label),
+            Text(text = if(isShowingRecommendedListPage) {
+                stringResource(R.string.recommended_fragment_label)
+            } else {
+                stringResource(R.string.category_fragment_label)
+            },
                 fontWeight = FontWeight.Bold
             )
         },
@@ -146,6 +167,7 @@ private fun CategoryList(
         verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_medium)),
         modifier = modifier
     ){
+        Log.d("CATEGORY","Click as been made!")
         items(categories, key = { category -> category.id }) { category ->
             CategoryListItem(
                 category = category,
