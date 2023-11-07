@@ -10,5 +10,6 @@ data class Recommendation(
     @DrawableRes val imageResourceId: Int,
     @DrawableRes val recommendedImageBanner: Int,
     @StringRes val recommendedHours: Int,
-    @StringRes val recommendedDetails: Int
+    @StringRes val recommendedDetails: Int,
+    @StringRes val recommendedLocation: Int
 )

@@ -74,7 +74,7 @@ fun RecommendedList(
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun RecommendedListItem(
+private fun RecommendedListItem(
     recommended: Recommendation,
     onItemClick: (Recommendation) -> Unit,
     modifier: Modifier = Modifier
@@ -131,7 +131,7 @@ fun RecommendedListItem(
  * TODO: Finish up RecommendedListImageItem
  */
 @Composable
- fun RecommendedListImageItem(
+ private fun RecommendedListImageItem(
     recommended: Recommendation,
     modifier: Modifier = Modifier){
     Box(
@@ -243,6 +243,15 @@ fun RecommendedDetail(
                     horizontal = dimensionResource(R.dimen.padding_detail_content_horizontal)
                 )
             )
+            Spacer(Modifier.weight(1f))
+            Text(
+                text = stringResource(R.string.location_text) + " " + stringResource(selectedRecommendation.recommendedLocation),
+                style = MaterialTheme.typography.bodyLarge,
+                modifier = Modifier.padding(
+                    vertical = dimensionResource(R.dimen.padding_detail_content_vertical),
+                    horizontal = dimensionResource(R.dimen.padding_detail_content_horizontal )
+                )
+            )
         }
     }
 }
@@ -280,9 +289,10 @@ fun RecommendedListAndDetailPreview(){
         Surface {
             RecommendedListAndDetail(
                 recommended = RecommendationDataProvider.getRecommendation(),
-                selectedRecommendation = RecommendationDataProvider.getRecommendation().getOrElse(0){
+                /*selectedRecommendation = RecommendationDataProvider.getRecommendation().getOrElse(0){
                     RecommendationDataProvider.defaultRecommendation
-                },
+                },*/
+                selectedRecommendation = RecommendationDataProvider.getRecommendation()[0],
                 onClick = {},
                 modifier = Modifier.fillMaxWidth()
             )
