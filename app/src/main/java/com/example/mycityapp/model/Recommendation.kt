@@ -9,5 +9,6 @@ data class Recommendation(
     @StringRes val subtitleResourceId: Int,
     @DrawableRes val imageResourceId: Int,
     @DrawableRes val recommendedImageBanner: Int,
+    @StringRes val recommendedHours: Int,
     @StringRes val recommendedDetails: Int
 )
