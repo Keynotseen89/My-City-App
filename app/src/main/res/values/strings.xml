@@ -2,13 +2,13 @@
     <string name="app_name">My City App</string>
     <string name="category_fragment_label">Categories</string>
     <string name="recommended_fragment_label">Recommended</string>
-
+    <!--Category -->
     <string name="coffee_shops">Coffee Shops</string>
     <string name="restaurants">Restaurants</string>
     <string name="dog_friendly">Dog Friendly Restaurants</string>
     <string name="dog_parks">Dog Parks</string>
     <string name="shopping_center">Shopping Center</string>
-
+    <!--Coffee Shops -->
     <string name="mad_lab_coffee">Mad Lab Coffee</string>
     <string name="mad_lab_coffee_subtitle">Mad Lab Coffee was launched out of a basement in downtown LA</string>
     <string name="mad_lab_coffee_details">Mad Lab Coffee was launched out of a basement in downtown LA by creators Andrew Sinclair and Sarah Sinclair with a focus on quality and the neighborhood of Los Angeles. Mad Lab has become one of the most recognizable roasters in Los Angeles and the International coffee community focusing on quality, seasonal, and relational driven coffees. The focus for all of Mad Lab’s coffees is the pursuit of sweetness and fruitiness.</string>
@@ -38,6 +38,51 @@
     <string name="maru_coffee_details">An exercise in Korean minimalist design, Maru’s Los Feliz and the Arts District are incredibly pleasant places to enjoy coffee in Los Angeles. The beans are roasted at its larger Arts District space and the Beverly Hills is a recent addition to secure a cup in the city.</string>
     <string name="maru_coffee_hours">Open from 8am - 5pm</string>
     <string name="maru_coffee_location">1936 Hillhurst Ave, Los Angeles, CA 90027</string>
+
+    <!--Restaurants -->
+    <string name="restaurant_orochon_ramen">Orochon Ramen</string>
+    <string name="restaurant_orochon_ramen_subtitle">Small Japanese restaurant with a Wall of Fame for diners who can conquer the spiciest ramen bowl.</string>
+    <string name="restaurant_orochon_ramen_details">Small Japanese restaurant with a Wall of Fame for diners who can conquer the spiciest ramen bowl.</string>
+    <string name="restaurant_orochon_ramen_hours">Open Sun-Thur 11:30am - 10:30pm Friday and Saturday 11:30am - 11:00pm</string>
+    <string name="restaurant_orochon_ramen_location">123 Astronaut E S Onizuka St, Los Angeles, California 90012</string>
+
+    <string name="restaurant_slurpin_ramen_bar">Slurpin Ramen Bar</string>
+    <string name="restaurant_slurpin_ramen_bar_subtitle">Staying traditional with style! Started in the heart of Koreatown</string>
+    <string name="restaurant_slurpin_ramen_bar_details">Staying traditional with style! Started in the heart of Koreatown, Los Angeles 8th Street, slurpin ramen was created from ambition to bringing authentic Hakata-style rich, thick and creamy tonkotsu ramen to California. slurpin’ derives from Japanese culture in showing respect to your ramen chef with a loud “slurp” sound from eating the noodles and broth. Loud slurping may seem different in the US, but in Japan it is considered rude not to slurp!
+        Grab a bowl and let us hear you enjoy the great quality taste in every slurp!</string>
+    <string name="restaurant_slurpin_ramen_bar_hours">Open everyday 11:30am - 12am</string>
+    <string name="restaurant_slurpin_ramen_bar_location">18508-A E Gale Ave city of Industry, CA 92748</string>
+
+    <string name="restaurant_native_fields">Native Fields</string>
+    <string name="restaurant_native_fields_subtitle">With 100% locally sourced ingredients, we shop at the South Pasadena and Claremont farmers markets. We support local farmers</string>
+    <string name="restaurant_native_fields_details">With 100% locally sourced ingredients, we shop at the South Pasadena and Claremont farmers markets. We support local farmers, like Underwood Family Farms, Valdivia Farm, Justin of Seeds of Xanxadu, and Cal Poly Pomona. Native Fields is a farm-to-table, non-GMO, pesticide-free restaurant and cafe. Grass-fed beef, free-range chicken and pasture-raised eggs are served here with vegetarian and vegan options available.</string>
+    <string name="restaurant_native_fields_hours">Open Sun - Tue 9am - 3pm, Wen - Sat 9am - 9pm</string>
+    <string name="restaurant_native_fields_location">18750 Amar Rd, Walnut, CA 91789</string>
+
+    <string name="restaurant_the_chessecake_factory">The Chessecake Factory</string>
+    <string name="restaurant_the_cheesecake_factory_subtitle">With more than 250 items on our menu, it may be hard to believe</string>
+    <string name="restaurant_the_cheesecake_factory_details">With more than 250 items on our menu, it may be hard to believe that we make things fresh and from scratch in each restaurant – but it’s true! Our prep kitchens are one of the busiest spots in our restaurants, and it’s where the magic begins every day.</string>
+    <string name="restaurant_the_cheesecake_factory_hours">Open M-th 11:30am - 10pm, Fri 11:30am - 11pm, Sat 11am - 11pm, Sun 10am - 10pm</string>
+    <string name="restaurant_the_cheesecake_factory_location">189 The Grove Dr K-90, Los Angeles, CA 90036</string>
+
+    <string name="restaurant_viva_madrid">Viva Madrid</string>
+    <string name="restaurant_viva_madrid_subtitle">Located in Claremont historic Village district, Viva Madrid has been serving authentic Spanish.</string>
+    <string name="restaurant_viva_madrid_details">Located in Claremont historic Village district, Viva Madrid has been serving authentic Spanish flavors and experiences since </string>
+    <string name="restaurant_viva_madrid_hours">Open M-Th 5pm - 10pm, Fri 5pm - 11pm, Sat 4pm - 11pm, Sun 4pm - 9pm</string>
+    <string name="restaurant_viva_madrid_location">225 N Yale Ave, Claremont, CA 91711</string>
+
+    <string name="restaurant_little_sister">Little Sister DTLA</string>
+    <string name="restaurant_little_sister_subtitle">East-Meets-West dishes that inspire and evoke a feeling of being welcomed into Chef</string>
+    <string name="restaurant_little_sister_details">"East-Meets-West dishes that inspire and evoke a feeling of being welcomed into Chef Vuong's home. Little Sister's menu showcases Chef Tin's take on one of the more interesting and rich collisions of food and culture that was borne out of the European colonization of Southeast Asia.
+        Dishes blend and balance the spices and flavors of Southeast Asia with French techniques and Dutch and British colonial influences. The menu is continually and progressively evolving, reflecting the inspiration and the seasons. Chef Tin curates the restaurant's wine and beverage program with a focus on intriguing labels, both domestically and from around the world."</string>
+    <string name="restaurant_little_sister_hours">Open M-F 11am - 10pm, S-Sun 11am - 10pm</string>
+    <string name="restaurant_little_sister_location">523 W 7th St, Los Angeles, CA 90017</string>
+
+    <string name="restaurant_mama_por_dios">Mama Por Dios</string>
+    <string name="restaurant_mama_por_dios_subtitle">Mamá por Dios is a restaurant that highlights the best of México, with its flavors</string>
+    <string name="restaurant_mama_por_dios_details">Mamá por Dios is a restaurant that highlights the best of México, with its flavors, aromas, colors, traditions and art. Bringing it closer to its customers and every drink in every corner. Mamá por Dios is a Mexican gourmet restaurant where you can celebrate every moment to the sound of live Mariachi or enjoy a shot to the beats of a great DJ.</string>
+    <string name="restaurant_mama_por_dios_hours">Open Brunch M-Thu 10am - 2pm, Dinner 5pm - 12pm, Fri 11am - 2pm, Sat 10am - 2pm, Sun 10am - 12am</string>
+    <string name="restaurant_mama_por_dios_location">12225 E. Foothill Blvd. Rancho Cucamonga, CA. 91739</string>
 
     <string name="location_text">Location: </string>
 
