@@ -13,12 +13,13 @@
     <string name="mad_lab_coffee_subtitle">Mad Lab Coffee was launched out of a basement in downtown LA</string>
     <string name="mad_lab_coffee_details">Mad Lab Coffee was launched out of a basement in downtown LA by creators Andrew Sinclair and Sarah Sinclair with a focus on quality and the neighborhood of Los Angeles. Mad Lab has become one of the most recognizable roasters in Los Angeles and the International coffee community focusing on quality, seasonal, and relational driven coffees. The focus for all of Mad Lab’s coffees is the pursuit of sweetness and fruitiness.</string>
     <string name="mad_lab_coffee_hours">Open from 7am-6pm</string>
+    <string name="mad_lab_coffee_location">6515 W Sunset Blvd, Los Angeles, CA 90028</string>
 
     <string name="laidrey_coffee">Laidrey Coffee</string>
     <string name="laidre_coffee_subtitle">Stop by our cafe in Tarzana to sample our range of coffees alongside a menu of baked treats</string>
     <string name="laidre_coffee_details">Stop by our cafe in Tarzana to sample our range of coffees alongside a menu of baked treats, seasonal toasts, and more. We regularly host events throughout the month on our shop where we partner with local vendors, in addition to providing coffee bags, merchandise, and more for purchase in our cafe. We look forward to seeing you at Laidrey!</string>
     <string name="laidre_coffee_hours">Open M-Sun 7am - 5pm</string>
-    <string name="laidre_coffee_location">LOCATION: 18600 Venture Blvd., Tarzana, CA 91356</string>
+    <string name="laidre_coffee_location">18600 Venture Blvd., Tarzana, CA 91356</string>
 
     <string name="ten_speed_coffee">10 Speed Coffee</string>
     <string name="ten_speed_coffee_subtitle">Appealing to bicycle culture, this Calabasas and Santa Monica cafe does well-crafted espresso</string>
@@ -37,6 +38,8 @@
     <string name="maru_coffee_details">An exercise in Korean minimalist design, Maru’s Los Feliz and the Arts District are incredibly pleasant places to enjoy coffee in Los Angeles. The beans are roasted at its larger Arts District space and the Beverly Hills is a recent addition to secure a cup in the city.</string>
     <string name="maru_coffee_hours">Open from 8am - 5pm</string>
     <string name="maru_coffee_location">1936 Hillhurst Ave, Los Angeles, CA 90027</string>
+
+    <string name="location_text">Location: </string>
 
     <string name="back_button">Back</string>
 </resources>
