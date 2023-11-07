@@ -27,6 +27,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
@@ -103,12 +104,12 @@ fun RecommendedListItem(
             ) {
                 Text(
                     text = stringResource(recommended.titleResourcesId),
-                    style = MaterialTheme.typography.titleMedium,
+                    style = MaterialTheme.typography.displayMedium,
                     modifier = Modifier.padding(bottom = dimensionResource(R.dimen.card_text_vertical_space))
                 )
                 Text(
                     text = stringResource(recommended.subtitleResourceId),
-                    style = MaterialTheme.typography.bodySmall,
+                    style = MaterialTheme.typography.displaySmall,
                     color = MaterialTheme.colorScheme.secondary,
                     overflow = TextOverflow.Ellipsis,
                     maxLines = 3
@@ -137,6 +138,10 @@ fun RecommendedListItem(
         modifier = modifier
     ){
         Image(
+            modifier = modifier
+                .size(dimensionResource(id = R.dimen.card_image_height))
+                .padding(dimensionResource(id = R.dimen.padding_small))
+                .clip(RoundedCornerShape(dimensionResource(id = R.dimen.shape_rounded_corner_small))),
             painter = painterResource(recommended.imageResourceId),
             contentDescription = null,
             alignment = Alignment.Center,
@@ -218,19 +223,21 @@ fun RecommendedDetail(
                     Row(
                         modifier = Modifier.padding(dimensionResource(R.dimen.padding_small))
                     ){
-                        /*Text(
-                            text = stringResource(R.),
-                            style = ,
-                            color = ,
+                        Text(
+                            text = stringResource(selectedRecommendation.recommendedHours),
+                            style = MaterialTheme.typography.labelSmall,
+                            color = MaterialTheme.colorScheme.inverseOnSurface,
+                            modifier = Modifier
+                                .padding(horizontal = dimensionResource(R.dimen.padding_small))
                         )
                         Spacer(Modifier.weight(1f))
-                        Text()*/
+
                     }
                 }
             } //Finish up the box in a while
             Text(
                 text = stringResource(selectedRecommendation.recommendedDetails),
-                style = MaterialTheme.typography.bodyMedium,
+                style = MaterialTheme.typography.bodyLarge,
                 modifier = Modifier.padding(
                     vertical = dimensionResource(R.dimen.padding_detail_content_vertical),
                     horizontal = dimensionResource(R.dimen.padding_detail_content_horizontal)

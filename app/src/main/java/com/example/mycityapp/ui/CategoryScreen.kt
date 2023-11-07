@@ -34,12 +34,14 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.mycityapp.R
 import com.example.mycityapp.data.CategoryDataProvider
@@ -70,9 +72,14 @@ fun MyCityApp(
       topBar = {
           MyCityAppBar(
               isShowingCategoryListPage = uiState.isShowingCategoryListPage,
-              onBackButtonClick = {},//{ viewModel.navigateToCategoryListPage()},
+              onBackButtonClick ={ viewModel.navigateToCategoryListPage()},
               windowSize = windowSize,
           )
+         /* MyCityAppBar(
+              isShowingCategoryListPage = recommendedUiState.isShowingRecommendedListPage,
+              onBackButtonClick = { recommendedViewModel.navigateToRecommendedListPage() },
+              windowSize = windowSize,
+          )*/
       }
     ) { innerPadding ->
         if(uiState.isShowingCategoryListPage){
@@ -107,6 +114,7 @@ fun MyCityApp(
         }
 
     }
+
 }
 
 /**
@@ -214,7 +222,7 @@ private fun CategoryListItem(
             ) {
                 Text(
                     text = stringResource(category.titleResourceId),
-                    style = MaterialTheme.typography.titleMedium,
+                    style = MaterialTheme.typography.displayMedium,
                     modifier = Modifier.padding(bottom = dimensionResource(R.dimen.card_text_vertical_space))
                 )
             }
@@ -231,6 +239,10 @@ private fun CategoryListImageItem(category: Categories, modifier: Modifier = Mod
         modifier = modifier
     ) {
         Image(
+            modifier = modifier
+                .size(dimensionResource(id = R.dimen.card_image_height))
+                .padding(dimensionResource(id = R.dimen.padding_small))
+                .clip(RoundedCornerShape(dimensionResource(id = R.dimen.shape_rounded_corner_small))),
             painter = painterResource(category.imageResourceId),
             contentDescription = null,
             alignment = Alignment.Center,
