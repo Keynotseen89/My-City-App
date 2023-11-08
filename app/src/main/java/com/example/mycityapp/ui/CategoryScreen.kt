@@ -119,6 +119,11 @@ fun MyCityApp(
                     onBackPressed = {
                         viewModel.navigateToCategoryListPage()
                     })
+            } else {
+                RestaurantDetail(selectedRecommendation = restaurantUiState.currentRestaurant,
+                    onBackPressed = {
+                        restaurantViewModel.navigateToRestaurantListPage()
+                    })
             }
         }
     }
