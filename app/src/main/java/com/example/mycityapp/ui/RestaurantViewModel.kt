@@ -16,7 +16,7 @@ class RestaurantViewModel: ViewModel() {
             },
         )
     )
-    var uiRestState: StateFlow<RestaurantUiState> = _uiState
+    var uiState: StateFlow<RestaurantUiState> = _uiState
 
     fun updateCurrentRestaurant(selectRestaurant: Recommendation){
         _uiState.update {

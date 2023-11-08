@@ -59,6 +59,9 @@ fun MyCityApp(
 
     val recommendedViewModel: RecommendationViewModel = viewModel()
     val recommendedUiState by recommendedViewModel.uiState.collectAsState()
+
+    val restaurantViewModel: RestaurantViewModel = viewModel()
+    val restaurantUiState by restaurantViewModel.uiState.collectAsState()
     /**
      * Finish Windows Size List
      */
@@ -72,14 +75,9 @@ fun MyCityApp(
       topBar = {
           MyCityAppBar(
               isShowingCategoryListPage = uiState.isShowingCategoryListPage,
-              onBackButtonClick ={ viewModel.navigateToCategoryListPage()},
+              onBackButtonClick = {},//{ viewModel.navigateToCategoryListPage()},
               windowSize = windowSize,
           )
-         /* MyCityAppBar(
-              isShowingCategoryListPage = recommendedUiState.isShowingRecommendedListPage,
-              onBackButtonClick = { recommendedViewModel.navigateToRecommendedListPage() },
-              windowSize = windowSize,
-          )*/
       }
     ) { innerPadding ->
         if(uiState.isShowingCategoryListPage){
@@ -88,12 +86,11 @@ fun MyCityApp(
                 onClick = {
                     viewModel.updateCurrentCategory(it)
                     viewModel.navigateToRecommendedPage()
-                },
+                          },
                 modifier = Modifier.padding(innerPadding)
             )
-        } else {
-            if (recommendedUiState.isShowingRecommendedListPage) {
-                //Need to revisit this section to clean up
+        }else if(uiState.currentCategory.id == 1){
+            if(recommendedUiState.isShowingRecommendedListPage ){
                 RecommendedList(
                     recommendation = recommendedUiState.recommendedList,
                     modifier = Modifier.padding(innerPadding),
@@ -111,8 +108,19 @@ fun MyCityApp(
                         recommendedViewModel.navigateToRecommendedListPage()
                     })
             }
+        }else if(uiState.currentCategory.id == 2){
+            if(restaurantUiState.isShowingRestaurantListPage){
+                RestaurantList(recommended = restaurantUiState.restaurantList,
+                    modifier = Modifier.padding(innerPadding),
+                    onClick = {
+                        restaurantViewModel.updateCurrentRestaurant(it)
+                        restaurantViewModel.navigateToRestaurantDetailPage()
+                    } ,
+                    onBackPressed = {
+                        viewModel.navigateToCategoryListPage()
+                    })
+            }
         }
-
     }
 
 }
@@ -175,7 +183,6 @@ private fun CategoryList(
         verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_medium)),
         modifier = modifier
     ){
-        Log.d("CATEGORY","Click as been made!")
         items(categories, key = { category -> category.id }) { category ->
             CategoryListItem(
                 category = category,
