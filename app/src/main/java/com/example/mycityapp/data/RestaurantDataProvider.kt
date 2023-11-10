@@ -65,7 +65,7 @@ object RestaurantDataProvider {
                 titleResourcesId = R.string.restaurant_little_sister,
                 subtitleResourceId = R.string.restaurant_little_sister_subtitle,
                 imageResourceId = R.drawable.restaurant_little_sister,
-                recommendedImageBanner = R.drawable.restaurant_little_sister,
+                recommendedImageBanner = R.drawable.restaurant_little_sister_banner,
                 recommendedHours = R.string.restaurant_little_sister_hours,
                 recommendedDetails = R.string.restaurant_little_sister_details,
                 recommendedLocation = R.string.restaurant_little_sister_location

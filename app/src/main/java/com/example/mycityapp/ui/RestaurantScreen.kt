@@ -1,6 +1,6 @@
 package com.example.mycityapp.ui
 
-import android.util.Log
+import android.app.Activity
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -12,8 +12,10 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
@@ -32,13 +34,14 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.example.mycityapp.R
-import com.example.mycityapp.data.RecommendationDataProvider
 import com.example.mycityapp.data.RestaurantDataProvider
 import com.example.mycityapp.model.Recommendation
 import com.example.mycityapp.ui.theme.MyCityAppTheme
@@ -218,6 +221,32 @@ fun RestaurantDetail(
         }
     }
 }
+
+@Composable
+fun RestaurantListAndDetail(
+    recommended: List<Recommendation>,
+    selectedRecommendation: Recommendation,
+    onClick: (Recommendation) -> Unit,
+    modifier: Modifier = Modifier
+){
+    Row(
+        modifier = modifier
+    ){
+        val activity = (LocalContext.current as Activity)
+        RestaurantList(
+            recommended = recommended,
+            modifier = Modifier.weight(2f),
+            onBackPressed = { activity.finish() },
+            onClick = onClick
+        )
+
+        RestaurantDetail(
+            selectedRecommendation = selectedRecommendation,
+            modifier = Modifier.weight(3f),
+            onBackPressed = { activity.finish() }
+        )
+    }
+}
 @Preview
 @Composable
 fun RestaurantListPreview(){
@@ -240,6 +269,19 @@ fun RestaurantDetailPreview(){
                 selectedRecommendation = RestaurantDataProvider.getRecommendedRestaurant()[0],
                 onBackPressed = {}
             )
+        }
+    }
+}
+
+@Preview
+@Composable
+fun RestaurantListAndDetailPreview(){
+    MyCityAppTheme{
+        Surface {
+            RestaurantListAndDetail(
+                recommended = RestaurantDataProvider.getRecommendedRestaurant(),
+                selectedRecommendation = RestaurantDataProvider.getRecommendedRestaurant()[0],
+                onClick = {})
         }
     }
 }

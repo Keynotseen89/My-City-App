@@ -2,7 +2,7 @@ package com.example.mycityapp.ui
 
 import RecommendedDetail
 import RecommendedList
-import android.util.Log
+import RecommendedListAndDetail
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
@@ -41,12 +42,11 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.mycityapp.R
 import com.example.mycityapp.data.CategoryDataProvider
-import com.example.mycityapp.data.RecommendationDataProvider
 import com.example.mycityapp.model.Categories
+import com.example.mycityapp.model.Recommendation
 import com.example.mycityapp.ui.theme.MyCityAppTheme
 
 
@@ -90,41 +90,66 @@ fun MyCityApp(
                 modifier = Modifier.padding(innerPadding)
             )
         }else if(uiState.currentCategory.id == 1){
-            if(recommendedUiState.isShowingRecommendedListPage ){
-                RecommendedList(
-                    recommendation = recommendedUiState.recommendedList,
-                    modifier = Modifier.padding(innerPadding),
-                    onClick = {
-                        recommendedViewModel.updateCurrentRecommendation(it)
-                        recommendedViewModel.navigateToRecommendedDetailPage()
-                    },
-                    onBackPressed = {
-                        viewModel.navigateToCategoryListPage()
-                    }
+            if(contentType == ContentType.ListOnly ){
+                if(recommendedUiState.isShowingRecommendedListPage ){
+                    RecommendedList(
+                        recommendation = recommendedUiState.recommendedList,
+                        modifier = Modifier.padding(innerPadding),
+                        onClick = {
+                            recommendedViewModel.updateCurrentRecommendation(it)
+                            recommendedViewModel.navigateToRecommendedDetailPage()
+                        },
+                        onBackPressed = {
+                            viewModel.navigateToCategoryListPage()
+                        }
+                    )
+                } else {
+                    RecommendedDetail(selectedRecommendation = recommendedUiState.currentRecommended,
+                        onBackPressed = {
+                            recommendedViewModel.navigateToRecommendedListPage()
+                        })
+                }
+            }
+            else if(contentType == ContentType.ListAndDetail){
+                RecommendedListAndDetail(
+                    recommended = recommendedUiState.recommendedList,
+                    selectedRecommendation = recommendedUiState.currentRecommended,
+                    onClick = { recommendedViewModel.updateCurrentRecommendation(it)},
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(innerPadding)
                 )
-            } else {
-                RecommendedDetail(selectedRecommendation = recommendedUiState.currentRecommended,
-                    onBackPressed = {
-                        recommendedViewModel.navigateToRecommendedListPage()
-                    })
             }
-        }else if(uiState.currentCategory.id == 2){
-            if(restaurantUiState.isShowingRestaurantListPage){
-                RestaurantList(recommended = restaurantUiState.restaurantList,
-                    modifier = Modifier.padding(innerPadding),
-                    onClick = {
-                        restaurantViewModel.updateCurrentRestaurant(it)
-                        restaurantViewModel.navigateToRestaurantDetailPage()
-                    } ,
-                    onBackPressed = {
-                        viewModel.navigateToCategoryListPage()
-                    })
-            } else {
-                RestaurantDetail(selectedRecommendation = restaurantUiState.currentRestaurant,
-                    onBackPressed = {
-                        restaurantViewModel.navigateToRestaurantListPage()
-                    })
+        } else if(uiState.currentCategory.id == 2){
+            if(contentType == ContentType.ListOnly){
+                if(restaurantUiState.isShowingRestaurantListPage){
+                    RestaurantList(recommended = restaurantUiState.restaurantList,
+                        modifier = Modifier.padding(innerPadding),
+                        onClick = {
+                            restaurantViewModel.updateCurrentRestaurant(it)
+                            restaurantViewModel.navigateToRestaurantDetailPage()
+                        } ,
+                        onBackPressed = {
+                            viewModel.navigateToCategoryListPage()
+                        })
+                } else {
+                    RestaurantDetail(selectedRecommendation = restaurantUiState.currentRestaurant,
+                        onBackPressed = {
+                            restaurantViewModel.navigateToRestaurantListPage()
+                        })
+                }
             }
+            else if(contentType == ContentType.ListAndDetail){
+                RestaurantListAndDetail(
+                    recommended = restaurantUiState.restaurantList,
+                    selectedRecommendation = restaurantUiState.currentRestaurant,
+                    onClick = { restaurantViewModel.updateCurrentRestaurant(it)},
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(innerPadding)
+                )
+            }
+            /**/
         }
     }
 
@@ -141,7 +166,7 @@ fun MyCityAppBar(
     windowSize: WindowWidthSizeClass,
     modifier: Modifier = Modifier
 ) {
-    var isShowingRecommendedListPage = windowSize != WindowWidthSizeClass.Expanded && !isShowingCategoryListPage
+    val isShowingRecommendedListPage = windowSize != WindowWidthSizeClass.Expanded && !isShowingCategoryListPage
     TopAppBar(
         title = {
             Text(text = if(isShowingRecommendedListPage) {
@@ -162,7 +187,7 @@ fun MyCityAppBar(
                 }
             }
         } else {
-            { Box() {} }
+            { Box {} }
         },
         colors = TopAppBarDefaults.smallTopAppBarColors(
             containerColor = MaterialTheme.colorScheme.primary,
