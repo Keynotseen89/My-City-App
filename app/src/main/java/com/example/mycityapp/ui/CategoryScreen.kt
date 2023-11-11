@@ -62,6 +62,9 @@ fun MyCityApp(
 
     val restaurantViewModel: RestaurantViewModel = viewModel()
     val restaurantUiState by restaurantViewModel.uiState.collectAsState()
+
+    val petFriendlyViewModel: PetFriendlyViewModel = viewModel()
+    val petFriendlyUiState by petFriendlyViewModel.uiState.collectAsState()
     /**
      * Finish Windows Size List
      */
@@ -149,7 +152,36 @@ fun MyCityApp(
                         .padding(innerPadding)
                 )
             }
-            /**/
+        } else if(uiState.currentCategory.id == 3){
+            if(contentType == ContentType.ListOnly){
+                if(petFriendlyUiState.isShowingPetFriendlyList){
+                    PetFriendlyList(
+                        recommended = petFriendlyUiState.petFriendlyList,
+                        modifier = Modifier.padding(innerPadding),
+                        onClick = {
+                            petFriendlyViewModel.updateCurrentPetFriendly(it)
+                            petFriendlyViewModel.navigateToPetFriendlyDetailPage()
+                        } ,
+                        onBackPressed = {
+                            viewModel.navigateToCategoryListPage()
+                        })
+                } else {
+                    PetFriendlyDetail(
+                        selectedRecommendation = petFriendlyUiState.currentPetFriendly,
+                        onBackPressed = {
+                            petFriendlyViewModel.navigateToPetFriendlyListPage()
+                        })
+                }
+            } else if(contentType == ContentType.ListAndDetail) {
+                PetFriendlyListAndDetail(
+                    recommended = petFriendlyUiState.petFriendlyList,
+                    selectedRecommendation = petFriendlyUiState.currentPetFriendly,
+                    onClick = { petFriendlyViewModel.updateCurrentPetFriendly(it)},
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(innerPadding)
+                )
+            }
         }
     }
 
