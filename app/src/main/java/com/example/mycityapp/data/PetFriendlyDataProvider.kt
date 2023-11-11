@@ -17,7 +17,7 @@ object PetFriendlyDataProvider {
                 recommendedImageBanner = R.drawable.pet_friendly_pedalers_fork_banner,
                 recommendedHours = R.string.pet_friendly_pedalers_fork_hours,
                 recommendedDetails = R.string.pet_friendly_pedalers_fork_details,
-                recommendedLocation = R.string.pet_friendly_pedalers_fork_hours,
+                recommendedLocation = R.string.pet_friendly_pedalers_fork_location,
             ),
             Recommendation(
                 id  = 2,
