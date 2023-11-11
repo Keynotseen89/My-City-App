@@ -83,8 +83,43 @@
     <string name="restaurant_mama_por_dios_details">Mamá por Dios is a restaurant that highlights the best of México, with its flavors, aromas, colors, traditions and art. Bringing it closer to its customers and every drink in every corner. Mamá por Dios is a Mexican gourmet restaurant where you can celebrate every moment to the sound of live Mariachi or enjoy a shot to the beats of a great DJ.</string>
     <string name="restaurant_mama_por_dios_hours">Open Brunch M-Thu 10am - 2pm, Dinner 5pm - 12pm, Fri 11am - 2pm, Sat 10am - 2pm, Sun 10am - 12am</string>
     <string name="restaurant_mama_por_dios_location">12225 E. Foothill Blvd. Rancho Cucamonga, CA. 91739</string>
+    <!-- Pet Friendly Restaurants -->
+    <string name="pet_friendly_pedalers_fork">Pedalers Fork</string>
+    <string name="pet_friendly_pedalers_fork_subtitle">Even though Pedalers Fork has deep roots in Los Angeles’s bike culture, it’s also an ideal spot to bring pups. </string>
+    <string name="pet_friendly_pedalers_fork_details">Even though Pedalers Fork has deep roots in Los Angeles’s bike culture, it’s also an ideal spot to bring pups. The Calabasas space can provide options if there for a quick coffee stop, or with a full sit-down meal including brisket, maple chili chicken wings, and a hot chicken sandwich.</string>
+    <string name="pet_friendly_pedalers_fork_hours">Coffee Shop 6am - 3pm, Lunch M - 8am - 1pm, Tue - Fri 8am - 3pm, Weekend Brunch 8am- 2:30pm</string>
+    <string name="pet_friendly_pedalers_fork_location">23504 Calabasas Rd, Calabasas, CA 91302</string>
+
+    <string name="pet_friendly_tallulas">"Tallula's"</string>
+    <string name="pet_friendly_tallulas_subtitle">Tallula’s in Santa Monica was always one of Los Angeles’s more dog-friendly spaces</string>
+    <string name="pet_friendly_tallulas_details">Tallula’s in Santa Monica was always one of Los Angeles’s more dog-friendly spaces (maybe even friendlier than most, with employees consistently coming over to give dog-friends ample treats and love). But with the addition of its new-ish Sunday dog brunch, now a full-time dog menu offered seven days a week, it’s reached a new tier. Dogs can feast on watermelon bites, chicken tacos, and the “wolf’s feast,” a bowl of raw grass-fed hanger steak with steamed vegetables.</string>
+    <string name="pet_friendly_tallulas_hours">CLOSED</string>
+    <string name="pet_friendly_tallulas_location">118 Entrada Dr. Santa Monica, CA 90402</string>
+
+    <string name="pet_friendly_sugar_palm_ocean_avenue">Sugar Palm Ocean Avenue</string>
+    <string name="pet_friendly_sugar_palm_ocean_avenue_subtitle">The Viceroy in Santa Monica is as pet-friendly as it comes, and recently launched</string>
+    <string name="pet_friendly_sugar_palm_ocean_avenue_detail">The Viceroy in Santa Monica is as pet-friendly as it comes, and recently launched an actual pet menu on Saturdays and Sundays from 6:30 a.m. to 2:30 p.m. That includes a puppy scramble with eggs, spinach, and shredded chicken, or the Snoop Doggy Dog with CBD oil, almond milk, peanut butter, and banana.</string>
+    <string name="pet_friendly_sugar_palm_ocean_avenue_hours">Brunch 6:30am - 3:00pm, Dinner 3:00pm - 10:0pm</string>
+    <string name="pet_friendly_sugar_palm_ocean_avenue_location">1819 Ocean Avenue, Santa Monica, California 90401</string>
+
+    <string name="pet_friendly_hermanito">Hermanito</string>
+    <string name="pet_friendly_hermanito_subtitle">Sawtelle’s best dog-friendly spot is Hermanito: The owner converted the side</string>
+    <string name="pet_friendly_hermanito_detail">Sawtelle’s best dog-friendly spot is Hermanito: The owner converted the side driveway and rear parking lot into new dining areas (including doggy doors for the “perros”), and it’s something to behold. The tables keep ample space between them, leaving plenty of room to bring dogs while eating the five-spice duck with a cocktail.</string>
+    <string name="pet_friendly_hermanito_hours">M--Th 11:30am--10:45pm, Fri 11:30--11:45pm, Sat 11:00am--11:45pm, Sun 11:00am--9:00pm</string>
+    <string name="pet_friendly_hermanito_location">2024 Sawtelle Blvd, Los Angeles, CA 90025</string>
+
+    <string name="pet_friendly_highly_likely_cafe">Highly Likely Cafe</string>
+    <string name="pet_friendly_highly_likely_cafe_subtitle">This all-day cafe in West Adams is the platonic ideal for unrushed, unequivocally easy weekday</string>
+    <string name="pet_friendly_highly_likely_cafe_detail">This all-day cafe in West Adams is the platonic ideal for unrushed, unequivocally easy weekday and weekend breakfasts. Dogs will appreciate the love and attention from staff members, who are highly likely to pet them or pass on treats as they walk by to drop off squishy-roll bodega breakfast sandwiches and flaky chocolate croissants.</string>
+    <string name="pet_friendly_highly_likely_cafe_hours">Hours 8am - 9pm Daily</string>
+    <string name="pet_friendly_highly_likely_cafe_location">4310 W Jefferson Blvd, Los Angeles, CA 90016</string>
+
+    <string name="pet_friendly_momed">Momed</string>
+    <string name="pet_friendly_momed_subtitle">Momed boasts its very own mascot, Piper, who is often roaming</string>
+    <string name="pet_friendly_momed_detail">Momed boasts its very own mascot, Piper, who is often roaming the grounds of this Middle Eastern hot spot in Atwater Village. Bring friends to keep her company on the spacious shaded patio, and enjoy some of mezze, cocktails, and kabobs to boot.</string>
+    <string name="pet_friendly_momed_hours">Lunch - Tuesday to Friday 11:30am to 2:30pm, Brunch - Saturday and Sunday 10am to 3pm, Dinner - Sunday to Thursday 5pm to 9:30pm, Dinner - Friday and Saturday 5pm to 10pm, Happy Hour - Monday to Thursday 5pm to 6:30pm</string>
+    <string name="pet_friendly_momed_location">3425 Casitas Ave, Los Angeles, CA 90039</string>
 
     <string name="location_text">Location: </string>
-
     <string name="back_button">Back</string>
 </resources>
