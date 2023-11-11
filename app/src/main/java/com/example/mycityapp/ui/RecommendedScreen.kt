@@ -158,9 +158,12 @@ fun RecommendedListAndDetail(
     recommended: List<Recommendation>,
     selectedRecommendation: Recommendation,
     onClick: (Recommendation) -> Unit,
+    onBackPressed: () -> Unit,
     modifier: Modifier = Modifier
 ){
-
+    BackHandler {
+        onBackPressed()
+    }
     Row(
         modifier = modifier
     ){
@@ -168,14 +171,14 @@ fun RecommendedListAndDetail(
         RecommendedList(
             recommendation = recommended,
             modifier = Modifier.weight(2f),
-            onBackPressed = { activity.finish() },
+            onBackPressed = onBackPressed,
             onClick = onClick
         )
 
         RecommendedDetail(
             selectedRecommendation = selectedRecommendation,
             modifier = Modifier.weight(3f),
-            onBackPressed = { activity.finish() }
+            onBackPressed = onBackPressed
         )
     }
 }
@@ -298,6 +301,7 @@ fun RecommendedListAndDetailPreview(){
                 },*/
                 selectedRecommendation = RecommendationDataProvider.getRecommendation()[0],
                 onClick = {},
+                onBackPressed = {},
                 modifier = Modifier.fillMaxWidth()
             )
         }

@@ -118,6 +118,9 @@ fun MyCityApp(
                     recommended = recommendedUiState.recommendedList,
                     selectedRecommendation = recommendedUiState.currentRecommended,
                     onClick = { recommendedViewModel.updateCurrentRecommendation(it)},
+                    onBackPressed = {
+                        viewModel.navigateToCategoryListPage()
+                    },
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(innerPadding)
@@ -147,6 +150,7 @@ fun MyCityApp(
                     recommended = restaurantUiState.restaurantList,
                     selectedRecommendation = restaurantUiState.currentRestaurant,
                     onClick = { restaurantViewModel.updateCurrentRestaurant(it)},
+                    onBackPressed = {viewModel.navigateToCategoryListPage()},
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(innerPadding)
@@ -177,6 +181,9 @@ fun MyCityApp(
                     recommended = petFriendlyUiState.petFriendlyList,
                     selectedRecommendation = petFriendlyUiState.currentPetFriendly,
                     onClick = { petFriendlyViewModel.updateCurrentPetFriendly(it)},
+                    onBackPressed = {
+                        viewModel.navigateToCategoryListPage()
+                    },
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(innerPadding)

@@ -227,23 +227,26 @@ fun RestaurantListAndDetail(
     recommended: List<Recommendation>,
     selectedRecommendation: Recommendation,
     onClick: (Recommendation) -> Unit,
+    onBackPressed: () -> Unit,
     modifier: Modifier = Modifier
 ){
+    BackHandler {
+        onBackPressed()
+    }
     Row(
         modifier = modifier
     ){
-        val activity = (LocalContext.current as Activity)
         RestaurantList(
             recommended = recommended,
             modifier = Modifier.weight(2f),
-            onBackPressed = { activity.finish() },
+            onBackPressed = onBackPressed,
             onClick = onClick
         )
 
         RestaurantDetail(
             selectedRecommendation = selectedRecommendation,
             modifier = Modifier.weight(3f),
-            onBackPressed = { activity.finish() }
+            onBackPressed = onBackPressed
         )
     }
 }
@@ -281,7 +284,9 @@ fun RestaurantListAndDetailPreview(){
             RestaurantListAndDetail(
                 recommended = RestaurantDataProvider.getRecommendedRestaurant(),
                 selectedRecommendation = RestaurantDataProvider.getRecommendedRestaurant()[0],
-                onClick = {})
+                onClick = {},
+                onBackPressed = {},
+                modifier = Modifier.fillMaxWidth())
         }
     }
 }
