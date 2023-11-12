@@ -173,7 +173,7 @@
     <!--Shopping Center Recommendation -->
     <string name="shopping_center_victoria_gardens">Victoria Gardens</string>
     <string name="shopping_center_victoria_gardens_subtitle">The Victoria Gardens Cultural Center, which features the Rancho Cucamonga</string>
-    The Victoria Gardens Cultural Center, which features the Rancho Cucamonga Public Library, a performing arts center, and a multi-use reception hall, is owned and operated by the city of Rancho Cucamonga and sits north of the shopping center between the two parking structures
+    <string name="shopping_center_victoria_gardens_detail">The Victoria Gardens Cultural Center, which features the Rancho Cucamonga Public Library, a performing arts center, and a multi-use reception hall, is owned and operated by the city of Rancho Cucamonga and sits north of the shopping center between the two parking structures</string>
     <string name="shopping_center_victoria_gardens_hours">Mon- Thu 10:00am to 8:00pm, Fri- Sat 10:00am to 9:00pm and Sun 11:00am to 7:00pm</string>
     <string name="shopping_center_victoria_gardens_location">12505 North Mainstreet Rancho Cucamonga, CA 91739</string>
 
