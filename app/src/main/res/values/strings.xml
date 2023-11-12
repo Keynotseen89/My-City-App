@@ -170,8 +170,45 @@
     <string name="dog_parks_runyon_canyon_dog_park_hours">Daily from sunrise to sunset</string>
     <string name="dog_parks_runyon_canyon_dog_park_location">2000 N. Fuller Ave., Los Angeles, CA 90046</string>
 
+    <!--Shopping Center Recommendation -->
+    <string name="shopping_center_victoria_gardens">Victoria Gardens</string>
+    <string name="shopping_center_victoria_gardens_subtitle">The Victoria Gardens Cultural Center, which features the Rancho Cucamonga</string>
+    The Victoria Gardens Cultural Center, which features the Rancho Cucamonga Public Library, a performing arts center, and a multi-use reception hall, is owned and operated by the city of Rancho Cucamonga and sits north of the shopping center between the two parking structures
+    <string name="shopping_center_victoria_gardens_hours">Mon- Thu 10:00am to 8:00pm, Fri- Sat 10:00am to 9:00pm and Sun 11:00am to 7:00pm</string>
+    <string name="shopping_center_victoria_gardens_location">12505 North Mainstreet Rancho Cucamonga, CA 91739</string>
 
+    <string name="shopping_center_ontario_mills">Ontario Mills</string>
+    <string name="shopping_center_ontario_mills_subtitle">Ontario Mills is a shopping and outlet mall located in Ontario, California</string>
+    <string name="shopping_center_ontario_mills_detail">Ontario Mills is a shopping and outlet mall located in Ontario, California, within the Los Angeles metropolitan area. With 28 million annual visitors, it is one of the top shopping and tourist destinations in California.</string>
+    <string name="shopping_center_ontario_mills_hours">10:00am to 9:00pm</string>
+    <string name="shopping_center_ontario_mills_location">1 Mills Cir, Ontario, CA 91764</string>
 
+    <string name="shopping_center_the_grove">The Grove</string>
+    <string name="shopping_center_the_grove_subtitle">High-end shopping mall features trendy retailers</string>
+    <string name="shopping_center_the_grove_detail">High-end shopping mall features trendy retailers, restaurants and a theater amid a bustling promenade.</string>
+    <string name="shopping_center_the_grove_hours">10:00am to 10:00pm</string>
+    <string name="shopping_center_the_grove_location">189 The Groove Dr, Los Angeles, CA 90036</string>
+
+    <string name="shopping_center_south_coast_plaza">South Coast Plaza</string>
+    <string name="shopping_center_south_coast_plaza_subtitle">South Coast Plaza is a modern shopping hub in the heart of Orange County, attracting those seeking upscale boutiques,</string>
+    <string name="shopping_center_south_coast_plaza_detail">South Coast Plaza is a modern shopping hub in the heart of Orange County, attracting those seeking upscale boutiques, designer labels, and award-winning cuisine. With one of the greatest concentrations of high-fashion retailers, rivaling the trendsetting neighborhoods of Bond Street, London and Fifth Avenue, New York, you are bound to leave with a celebrity-worthy wardrobe.
+With a cascading multitier fountain as its centerpiece, the 3-floor shopping mall is designed in a wonky H-shape, with 2 parking neighborhoods and a V.I.P. concierge service. Department stores are positioned around the perimeter, while boutique shops are grouped by product. High-end jewelers call Jewel Court home, while Carousel Court is where you go for hip, big-name apparel options.</string>
+    <string name="shopping_center_south_coast_plaza_hours"> Mon- Fri from 10:00am to 9:00pm Sat 10:00am to 8:00pm, Sun 11:00am to 6:30pm</string>
+    <string name="shopping_center_south_coast_plaza_location">3333 Bristol Street, Costa Mesa, CA 92626</string>
+
+    <string name="shopping_center_hollywood_and_highland">Hollywood and Highland</string>
+    <string name="shopping_center_hollywood_and_highland_subtitle">There is never a dull moment on Hollywood Boulevard and the same goes for the shopping at Hollywood and Highland</string>
+    <string name="shopping_center_hollywood_and_highland_detail">There is never a dull moment on Hollywood Boulevard and the same goes for the shopping at Hollywood and Highland. Boasting iconic tourist attractions such as the TCL Chinese Theatre, the Dolby Theatre and the Walk of Fame, this mall offers just as much gravy in its range of shops.
+Familiar favorites include Gap, American Eagle and LA’s only Virgin Megastore, as well as smaller chains like Swatch, Bebe and Hot Topic. If you’re looking to take something back home, the mall also has excellent souvenir shops. Though Hollywood and Highland may be crowded, its easily understandable thanks to its legendary status.</string>
+    <string name="shopping_center_hollywood_and_highland_hours">Mon- Sat 10:00am to 10:00pm, Sun from 10:00am to 8:00pm</string>
+    <string name="shopping_center_hollywood_and_highland_location">6801 Hollywood Boulevard 170, Los Angeles, CA 90028</string>
+
+    <string name="shopping_center_santa_monica_place">Santa Monica Place</string>
+    <string name="shopping_center_santa_monica_place_subtitle">With Santa Monica Place just blocks from the beach, a dip in the ocean and a trip to the shops became just as easy</string>
+    <string name="shopping_center_santa_monica_place_detail">With Santa Monica Place just blocks from the beach, a dip in the ocean and a trip to the shops became just as easy. Worth mentioning is its sleek, modern open-air design which involves a rooftop dining deck with chef-driven restaurants and stunning views of the city, the mountains and the Pacific.
+The mall has shops that range from Louis Vuitton Ted Baker to Bloomingdale’s and Nordstrom. But the experience is made all the more special with the mall’s superb dining options and a state-of-the-art 12-screen movie theater experience… you could spend a few days here</string>
+    <string name="shopping_center_santa_monica_place_hours">Mon- Sat from 10:00am to 9:00pm, Sun from 11:00am to 8:00pm</string>
+    <string name="shopping_center_santa_monica_place_location">395 Santa Monica Place, Santa Monica, CA 90401</string>
 
 
     <string name="location_text">Location: </string>
