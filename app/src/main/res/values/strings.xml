@@ -120,6 +120,60 @@
     <string name="pet_friendly_momed_hours">Lunch - Tuesday to Friday 11:30am to 2:30pm, Brunch - Saturday and Sunday 10am to 3pm, Dinner - Sunday to Thursday 5pm to 9:30pm, Dinner - Friday and Saturday 5pm to 10pm, Happy Hour - Monday to Thursday 5pm to 6:30pm</string>
     <string name="pet_friendly_momed_location">3425 Casitas Ave, Los Angeles, CA 90039</string>
 
+    <!--Dog Parks Recommendation -->
+    <string name="dog_parks_the_boneyard">The Boneyard</string>
+    <string name="dog_parks_the_boneyard_subtitle">The Boneyard is open each day from sunrise until 10:00 pm. This off-leash dog park is located within</string>
+    <string name="dog_parks_the_boneyard_detail">The Boneyard is open each day from sunrise until 10:00 pm. This off-leash dog park is located within a large park and features a small and large dog park area, benches, trees, and water fountains in just over a little more than an acre. Decomposed granite is used as ground cover. And don’t forget, dogs must be licensed, vaccinated, and over the age of four months.</string>
+    <string name="dog_parks_the_boneyard_hours">Sunrise until 10:00pm</string>
+    <string name="dog_parks_the_boneyard_location">Duquesne Ave. and Jefferson Blvd., Culver City, CA 90232</string>
+
+    <string name="dog_parks_arts_district_dog_park">Arts District Dog Park</string>
+    <string name="dog_parks_arts_district_dog_park_subtitle">The Arts District Dog Park is a small-ish, private, non-profit dog park and has longer hours than most other dog parks</string>
+    <string name="dog_parks_arts_district_dog_park_detail">The Arts District Dog Park is a small-ish, private, non-profit dog park and has longer hours than most other dog parks. It is open daily from 5:00 am to 11:00 pm. Additionally, you’ll find a dog water fountain, a separate area for small dogs, shade trees, and benches. The ground cover is made up of a decomposed granite surface. Visiting dogs must be at least four months old and up-to-date with licenses and vaccines.</string>
+    <string name="dog_parks_arts_district_dog_park_hours">Daily 5:00am to 11:00pm</string>
+    <string name="dog_parks_arts_district_dog_park_location">1004 E. 4th St., Los Angeles, CA 90013</string>
+
+    <string name="dog_parks_bluff_creek_dog_park">Bluff Creek Dog Park</string>
+    <string name="dog_parks_bluff_creek_dog_park_subtitle">You’ll find Bluff Creek Dog Park in the Playa Vista neighborhood of Los Angeles.</string>
+    <string name="dog_parks_bluff_creek_dog_park_detail">You’ll find Bluff Creek Dog Park in the Playa Vista neighborhood of Los Angeles. The park is open seven days a week (opening at 7:00 am Monday through Friday, 8:00 am on Saturday and Sunday, and closing at dusk). Bluff Creek is the only dog park in Playa Vista that offers “pet turf” in contrast to the wood chips you’ll find at other parks. You’ll also find “rolling hills” and a central stream</string>
+    <string name="dog_parks_bluff_creek_dog_park_hours">Mon- Fri 7:00am to dusk, Sat- Sun 8:00am to dusk</string>
+    <string name="dog_parks_bluff_creek_dog_park_location">12604 Bluff Creek Dr., Los Angeles, CA 90094</string>
+
+    <string name="dog_parks_griffith_park_dog_park">Griffith Park Dog Park</string>
+    <string name="dog_parks_griffith_park_dog_park_subtitle">The Griffith Park Dog Park is open daily from sunrise to sunset, although it does close each Tuesday from 6:00 am to 10:00 am for maintenance.</string>
+    <string name="dog_parks_griffith_park_dog_park_detail">The Griffith Park Dog Park is open daily from sunrise to sunset, although it does close each Tuesday from 6:00 am to 10:00 am for maintenance. This 1.6-acre dog park tends to be most popular with families “in the know” and so doesn’t tend to get as crowded as other parks. You’ll find separate fenced-off areas for small and large dogs, shaded sitting areas, and picnic tables. No grass here, which can make clean-up easier. A visit to Griffith Park Dog Park can also be included into a whole day spent in Griffith Park and its many family-friendly attractions!</string>
+    <string name="dog_parks_griffith_park_dog_park_hours">Daily from sunrise to sunset</string>
+    <string name="dog_parks_griffith_park_dog_park_location">North end of the John Ferraro Soccer Field on N. Zoo Dr., Los Angeles, CA 90027</string>
+
+    <string name="dog_parks_sepulveda_basin_off_leash_dog_park">Sepulveda Basin Off leash Dog Park</string>
+    <string name="dog_parks_sepulveda_basin_off_leash_dog_park_subtitle">The Dog Park is open daily from sunrise to sunset, though it is closed each Fridayn</string>
+    <string name="dog_parks_sepulveda_basin_off_leash_dog_park_detail">The Dog Park is open daily from sunrise to sunset, though it is closed each Friday from 6:00 am to 11:00 am for regular maintenance. Families will enjoy this 6.5-acre dog park which offers two small dog runs and one large dog run. You’ll also find lots of trees providing shade as well as benches and chairs. The site also hosts a low-cost Vaccine Clinic each Sunday from 3:30 pm to 5:00 pm.</string>
+    <string name="dog_parks_sepulveda_basin_off_leash_dog_park_hours">Daily from sunrise to sunset</string>
+    <string name="dog_parks_sepulveda_basin_off_leash_dog_park_location">17550 Victory Blvd., Encino, CA 91406</string>
+
+    <string name="dog_parks_lake_hollywood_park">Lake Hollywood Park</string>
+    <string name="dog_parks_lake_hollywood_park_subtitle">The Lake Hollywood Park boasts a children’s play area, picnic tables, barbecue pits</string>
+    <string name="dog_parks_lake_hollywood_park_detail">The Lake Hollywood Park boasts a children’s play area, picnic tables, barbecue pits, and an incredible view of the Hollywood sign. In addition, the park is dog-friendly though dogs must remain on leashes. The park is open seven days a week from sunrise to sunset. (Keep in mind the area can get crowded due to visitors trying to catch a glimpse of the Hollywood sign).
+</string>
+    <string name="dog_parks_lake_hollywood_park_hours">Daily from sunrise to sunset</string>
+    <string name="dog_parks_lake_hollywood_park_location">3160 Canyon Lake Dr., Los Angeles, CA</string>
+
+    <string name="dog_parks_silver_lake_dog_park">Silver Lake Dog Park</string>
+    <string name="dog_parks_silver_lake_dog_park_subtitle">The Silver Lake Dog Park is open seven days a week, from 6:00 am to 10:00 pm.</string>
+    <string name="dog_parks_silver_lake_dog_park_detail">The Silver Lake Dog Park is open seven days a week, from 6:00 am to 10:00 pm. (Note that the park closes each Wednesday from 6:00 am to 8:30 am for regular maintenance). Dogs will enjoy running off-leash at this fenced-in park which has a separate area for smaller pets. Regularly visiting families speak highly of the friendly dogs and dog owners you’ll encounter here, the biggest complaint is the lack of grass.</string>
+    <string name="dog_parks_silver_lake_dog_park_hours">Daily from 6:00am to 10:00pm</string>
+    <string name="dog_parks_silver_lake_dog_park_location">1863 Silve Lake Blvd., Los Angeles, CA 90026</string>
+
+    <string name="dog_parks_runyon_canyon_dog_park">Runyon Canyon Dog Park</string>
+    <string name="dog_parks_runyon_canyon_dog_park_subtitle">Families who enjoy hiking Runyon Canyon will appreciate the convenience of the Runyon</string>
+    <string name="dog_parks_runyon_canyon_dog_park_detail">Families who enjoy hiking Runyon Canyon will appreciate the convenience of the Runyon Canyon Dog Park. The dog park is open daily from sunrise to sunset. Families will find beautiful walking trails providing scenic views of our city. There are separate fenced-off areas for small and large dogs. Keep in mind that this is a popular spot, and as is common in Los Angeles, parking can be a challenge sometimes.</string>
+    <string name="dog_parks_runyon_canyon_dog_park_hours">Daily from sunrise to sunset</string>
+    <string name="dog_parks_runyon_canyon_dog_park_location">2000 N. Fuller Ave., Los Angeles, CA 90046</string>
+
+
+
+
+
     <string name="location_text">Location: </string>
     <string name="back_button">Back</string>
 </resources>
