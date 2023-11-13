@@ -1,7 +1,14 @@
 package com.example.mycityapp.ui
 
-import android.app.Activity
 import androidx.activity.compose.BackHandler
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.animation.core.MutableTransitionState
+import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.spring
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.slideInVertically
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -26,13 +33,13 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -40,10 +47,9 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.mycityapp.R
 import com.example.mycityapp.data.PetFriendlyDataProvider
-import com.example.mycityapp.data.RestaurantDataProvider
 import com.example.mycityapp.model.Recommendation
 import com.example.mycityapp.ui.theme.MyCityAppTheme
-
+@OptIn(ExperimentalAnimationApi::class)
 @Composable
 fun PetFriendlyList(
     recommended: List<Recommendation>,
@@ -54,17 +60,41 @@ fun PetFriendlyList(
     BackHandler {
         onBackPressed()
     }
+    val visibleState = remember {
+        MutableTransitionState(false).apply {
+            targetState = true
+        }
+    }
+    //Fade in entry animation for the entire list
+    AnimatedVisibility(
+        visibleState = visibleState,
+        enter = fadeIn(
+            animationSpec = spring(dampingRatio = Spring.DampingRatioLowBouncy)
+        ),
+        exit = fadeOut()
+    ){
     LazyColumn(
         contentPadding = PaddingValues(dimensionResource(R.dimen.padding_medium)),
         verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_medium)),
         modifier = modifier
-    ){
+    ) {
         items(recommended, key = { petFriendlys -> petFriendlys.id}) { petFrinedlys ->
             PetFriendlyListItem(
                 recommended = petFrinedlys,
-                onItemClick = onClick
+                onItemClick = onClick,
+                modifier = Modifier
+                    .animateEnterExit(
+                        enter = slideInVertically(
+                            animationSpec = spring(
+                                stiffness = Spring.StiffnessVeryLow,
+                                dampingRatio = Spring.DampingRatioLowBouncy
+                            ),
+                            initialOffsetY = { it * (petFrinedlys.id + 1) }
+                        )
+                    )
             )
         }
+    }
     }
 }
 

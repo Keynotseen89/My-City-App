@@ -1,7 +1,14 @@
 package com.example.mycityapp.ui
 
-import android.app.Activity
 import androidx.activity.compose.BackHandler
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.animation.core.MutableTransitionState
+import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.spring
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.slideInVertically
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -12,10 +19,8 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
@@ -28,24 +33,23 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import com.example.mycityapp.R
 import com.example.mycityapp.data.RestaurantDataProvider
 import com.example.mycityapp.model.Recommendation
 import com.example.mycityapp.ui.theme.MyCityAppTheme
-
+@OptIn(ExperimentalAnimationApi::class)
 @Composable
 fun RestaurantList(
     recommended: List<Recommendation>,
@@ -56,17 +60,41 @@ fun RestaurantList(
     BackHandler {
         onBackPressed()
     }
-    //var scrollState = rememberScrollState()
-    LazyColumn(
-        contentPadding = PaddingValues(dimensionResource(R.dimen.padding_medium)),
-        verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_medium)),
-        modifier = modifier
-    ){
-        items(recommended, key = { restaurants -> restaurants.id}) { restaurants ->
-            RestaurantListItem(
-                recommended = restaurants,
-                onItemClick = onClick
-            )
+    var scrollState = rememberScrollState()
+    val visibleState = remember {
+        MutableTransitionState(false).apply {
+            targetState = true
+        }
+    }
+    //Fade in entry animation for the entire list
+    AnimatedVisibility(
+        visibleState = visibleState,
+        enter = fadeIn(
+            animationSpec = spring(dampingRatio = Spring.DampingRatioLowBouncy)
+        ),
+        exit = fadeOut()
+    ) {
+        LazyColumn(
+            contentPadding = PaddingValues(dimensionResource(R.dimen.padding_medium)),
+            verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_medium)),
+            modifier = modifier
+        ) {
+            items(recommended, key = { restaurants -> restaurants.id }) { restaurants ->
+                RestaurantListItem(
+                    recommended = restaurants,
+                    onItemClick = onClick,
+                    modifier = Modifier
+                        .animateEnterExit(
+                            enter = slideInVertically(
+                                animationSpec = spring(
+                                    stiffness = Spring.StiffnessVeryLow,
+                                    dampingRatio = Spring.DampingRatioLowBouncy
+                                ),
+                                initialOffsetY = { it * (restaurants.id + 1) }
+                            )
+                        )
+                )
+            }
         }
     }
 }

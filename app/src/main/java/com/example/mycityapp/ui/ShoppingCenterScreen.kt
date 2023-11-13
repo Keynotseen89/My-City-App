@@ -91,7 +91,7 @@ fun ShoppingCenterList(
                                     stiffness = Spring.StiffnessVeryLow,
                                     dampingRatio = DampingRatioLowBouncy
                                 ),
-                                initialOffsetY = { it * (shoppingCenters.id + 1) } // staggered entrance
+                                initialOffsetY = { it * (shoppingCenters.id + 1) }
                             )
                         )
                 )

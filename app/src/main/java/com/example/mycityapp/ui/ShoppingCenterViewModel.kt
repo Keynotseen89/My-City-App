@@ -20,18 +20,18 @@ class ShoppingCenterViewModel: ViewModel() {
 
     var uiState: StateFlow<ShoppingCenterUiState> = _uiState
 
-    fun updateCurrentPetFriendly(selectPetFriendly: Recommendation){
+    fun updateCurrentShoppingCenter(selectShoppingCenter: Recommendation){
         _uiState.update {
-            it.copy(currentShoppingCenter = selectPetFriendly)
+            it.copy(currentShoppingCenter = selectShoppingCenter)
         }
     }
 
-    fun navigateToPetFriendlyListPage(){
+    fun navigateToShoppingCenterListPage(){
         _uiState.update{
             it.copy(isShowingShoppingCenterList = true)
         }
     }
-    fun navigateToPetFriendlyDetailPage(){
+    fun navigateToShoppingCenterDetailPage(){
         _uiState.update{
             it.copy(isShowingShoppingCenterList = false)
         }
