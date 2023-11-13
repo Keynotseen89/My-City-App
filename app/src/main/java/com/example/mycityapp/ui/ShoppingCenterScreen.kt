@@ -1,6 +1,15 @@
 package com.example.mycityapp.ui
 
 import androidx.activity.compose.BackHandler
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.animation.core.MutableTransitionState
+import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.Spring.DampingRatioLowBouncy
+import androidx.compose.animation.core.spring
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.slideInVertically
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -25,6 +34,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -40,7 +50,7 @@ import com.example.mycityapp.R
 import com.example.mycityapp.data.ShoppingCenterDataProvider
 import com.example.mycityapp.model.Recommendation
 import com.example.mycityapp.ui.theme.MyCityAppTheme
-
+@OptIn(ExperimentalAnimationApi::class)
 @Composable
 fun ShoppingCenterList(
     recommended: List<Recommendation>,
@@ -51,18 +61,44 @@ fun ShoppingCenterList(
     BackHandler {
         onBackPressed()
     }
-    LazyColumn(
-        contentPadding = PaddingValues(dimensionResource(R.dimen.padding_medium)),
-        verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_medium)),
-        modifier = modifier
-    ){
-        items(recommended, key = { shoppingCenters -> shoppingCenters.id}) { shoppingCenters ->
-            ShoppingCenterListItem(
-                recommended = shoppingCenters,
-                onItemClick = onClick
-            )
+
+    val visibleState = remember {
+        MutableTransitionState(false).apply {
+            targetState = true
         }
     }
+    //Fade in entry animation for the entire list
+    AnimatedVisibility(
+        visibleState = visibleState,
+        enter = fadeIn(
+            animationSpec = spring(dampingRatio = DampingRatioLowBouncy)
+        ),
+        exit = fadeOut()
+    ) {
+        LazyColumn(
+            contentPadding = PaddingValues(dimensionResource(R.dimen.padding_medium)),
+            verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_medium)),
+            modifier = modifier
+        ) {
+            items(recommended, key = { shoppingCenters -> shoppingCenters.id }) { shoppingCenters ->
+                ShoppingCenterListItem(
+                    recommended = shoppingCenters,
+                    onItemClick = onClick,
+                    modifier = Modifier
+                        .animateEnterExit(
+                            enter = slideInVertically(
+                                animationSpec = spring(
+                                    stiffness = Spring.StiffnessVeryLow,
+                                    dampingRatio = DampingRatioLowBouncy
+                                ),
+                                initialOffsetY = { it * (shoppingCenters.id + 1) } // staggered entrance
+                            )
+                        )
+                )
+            }
+        }
+    }
+
 }
 
 @OptIn(ExperimentalMaterial3Api::class)

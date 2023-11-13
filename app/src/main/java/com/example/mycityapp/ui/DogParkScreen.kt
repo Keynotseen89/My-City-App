@@ -4,8 +4,8 @@ import androidx.activity.compose.BackHandler
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.animation.core.MutableTransitionState
+import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.Spring.DampingRatioLowBouncy
-import androidx.compose.animation.core.Spring.StiffnessVeryLow
 import androidx.compose.animation.core.spring
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
@@ -23,7 +23,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
@@ -79,7 +79,7 @@ fun DogParkList(
             verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_medium)),
             modifier = modifier
         ) {
-            itemsIndexed(recommended) { index, dogParks ->
+            items(recommended, key = { dogParks -> dogParks.id }) { dogParks ->
                 DogParkListItem(
                     recommended = dogParks,
                     onItemClick = onClick,
@@ -87,10 +87,10 @@ fun DogParkList(
                         .animateEnterExit(
                             enter = slideInVertically(
                                 animationSpec = spring(
-                                    stiffness = StiffnessVeryLow,
+                                    stiffness = Spring.StiffnessVeryLow,
                                     dampingRatio = DampingRatioLowBouncy
                                 ),
-                                initialOffsetY = { it * (index + 1) } // staggered entrance
+                                initialOffsetY = { it * (dogParks.id + 1) } // staggered entrance
                             )
                         )
                 )
