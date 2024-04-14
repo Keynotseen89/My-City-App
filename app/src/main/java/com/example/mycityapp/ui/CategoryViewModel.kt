@@ -13,9 +13,9 @@ import kotlinx.coroutines.flow.update
 class CategoryViewModel: ViewModel() {
     private val _uiState = MutableStateFlow(
         CategoryUiState(
-            categoryList = CategoryDataProvider.getCategory(),
-            currentCategory =  CategoryDataProvider.getCategory().getOrElse(0){
-                CategoryDataProvider.defaultCategory
+            categoryList = CategoryDataProvider.getCategory,
+            currentCategory =  CategoryDataProvider.getCategory.getOrElse(0){
+                CategoryDataProvider.getCategory[0]
             }
         )
     )
@@ -42,6 +42,7 @@ class CategoryViewModel: ViewModel() {
 
 data class CategoryUiState(
     val categoryList: List<Categories> = emptyList(),
-    val currentCategory: Categories = CategoryDataProvider.defaultCategory,
+    val currentCategory: Categories = CategoryDataProvider.getCategory[0],
     val isShowingCategoryListPage: Boolean = true,
 )
+
