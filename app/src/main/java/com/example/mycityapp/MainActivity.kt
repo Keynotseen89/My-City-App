@@ -6,7 +6,10 @@ import androidx.activity.compose.setContent
 import androidx.compose.material3.Surface
 import androidx.compose.material3.windowsizeclass.ExperimentalMaterial3WindowSizeClassApi
 import androidx.compose.material3.windowsizeclass.calculateWindowSizeClass
+import com.example.mycityapp.data.CategoryDataProvider
 import com.example.mycityapp.ui.MyCityApp
+//import com.example.mycityapp.ui.MyCityApp
+import com.example.mycityapp.ui.StartScreen
 import com.example.mycityapp.ui.theme.MyCityAppTheme
 
 @ExperimentalMaterial3WindowSizeClassApi
@@ -20,6 +23,7 @@ class MainActivity : ComponentActivity() {
                     MyCityApp(
                         windowSize = windowSize.widthSizeClass
                     )
+                    //StartScreen(categoryOptions = CategoryDataProvider.getCategory);
                 }
             }
         }
