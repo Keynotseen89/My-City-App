@@ -67,14 +67,6 @@ fun ShoppingCenterList(
             targetState = true
         }
     }
-    //Fade in entry animation for the entire list
-    AnimatedVisibility(
-        visibleState = visibleState,
-        enter = fadeIn(
-            animationSpec = spring(dampingRatio = DampingRatioLowBouncy)
-        ),
-        exit = fadeOut()
-    ) {
         LazyColumn(
             contentPadding = PaddingValues(dimensionResource(R.dimen.padding_medium)),
             verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_medium)),
@@ -85,20 +77,9 @@ fun ShoppingCenterList(
                     recommended = shoppingCenters,
                     onItemClick = onClick,
                     modifier = Modifier
-                        .animateEnterExit(
-                            enter = slideInVertically(
-                                animationSpec = spring(
-                                    stiffness = Spring.StiffnessVeryLow,
-                                    dampingRatio = DampingRatioLowBouncy
-                                ),
-                                initialOffsetY = { it * (shoppingCenters.id + 1) }
-                            )
-                        )
                 )
             }
         }
-    }
-
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -315,7 +296,9 @@ fun ShoppingCenterAndDetailPreview(){
         Surface {
             ShoppingCenterListAndDetail(
                 recommended = ShoppingCenterDataProvider.getShoppingCenterRecommendation(),
-                selectedRecommendation = ShoppingCenterDataProvider.getShoppingCenterRecommendation()[0],
+                selectedRecommendation = ShoppingCenterDataProvider.getShoppingCenterRecommendation().getOrElse(0){
+                    ShoppingCenterDataProvider.defaultShoppingCenterRecommendation
+                },
                 onClick = {},
                 onBackPressed = {})
         }

@@ -1,5 +1,6 @@
 package com.example.mycityapp.ui
 
+import android.app.Activity
 import androidx.activity.compose.BackHandler
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.ExperimentalAnimationApi
@@ -65,14 +66,6 @@ fun PetFriendlyList(
             targetState = true
         }
     }
-    //Fade in entry animation for the entire list
-    AnimatedVisibility(
-        visibleState = visibleState,
-        enter = fadeIn(
-            animationSpec = spring(dampingRatio = Spring.DampingRatioLowBouncy)
-        ),
-        exit = fadeOut()
-    ){
     LazyColumn(
         contentPadding = PaddingValues(dimensionResource(R.dimen.padding_medium)),
         verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_medium)),
@@ -83,18 +76,8 @@ fun PetFriendlyList(
                 recommended = petFrinedlys,
                 onItemClick = onClick,
                 modifier = Modifier
-                    .animateEnterExit(
-                        enter = slideInVertically(
-                            animationSpec = spring(
-                                stiffness = Spring.StiffnessVeryLow,
-                                dampingRatio = Spring.DampingRatioLowBouncy
-                            ),
-                            initialOffsetY = { it * (petFrinedlys.id + 1) }
-                        )
-                    )
             )
         }
-    }
     }
 }
 
@@ -270,11 +253,11 @@ fun PetFriendlyListAndDetail(
             onBackPressed = onBackPressed,
             onClick = onClick
         )
-
+        //val activity = (LocalContent.current as Activity)
         RestaurantDetail(
             selectedRecommendation = selectedRecommendation,
             modifier = Modifier.weight(3f),
-            onBackPressed = onBackPressed
+            onBackPressed = onBackPressed//{ activity.finish() }//onBackPressed
         )
     }
 }
@@ -290,14 +273,14 @@ fun PetFriendlyListPreview(){
         }
     }
 }
-
+/*
 @Preview
 @Composable
 fun PetFriendlyDetailPreview(){
     MyCityAppTheme {
         Surface {
             PetFriendlyDetail(
-                selectedRecommendation = PetFriendlyDataProvider.getPetFriendlyRestaurant()[0],
+                selectedRecommendation = PetFriendlyDataProvider.getPetFriendlyRestaurant()[2],
                 onBackPressed = {}
             )
         }
@@ -311,9 +294,11 @@ fun PetFriendlyListAndDetailPreview(){
         Surface {
             PetFriendlyListAndDetail(
                 recommended = PetFriendlyDataProvider.getPetFriendlyRestaurant(),
-                selectedRecommendation = PetFriendlyDataProvider.getPetFriendlyRestaurant()[0],
+                selectedRecommendation = PetFriendlyDataProvider.getPetFriendlyRestaurant().getOrElse(0){
+                  PetFriendlyDataProvider.defaultPetFriendly
+                },//PetFriendlyDataProvider.getPetFriendlyRestaurant()[0],
                 onClick = {},
                 onBackPressed = {})
         }
     }
-}
+}*/

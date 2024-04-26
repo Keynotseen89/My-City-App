@@ -66,14 +66,6 @@ fun DogParkList(
             targetState = true
         }
     }
-    //Fade in entry animation for the entire list
-    AnimatedVisibility(
-        visibleState = visibleState,
-        enter = fadeIn(
-            animationSpec = spring(dampingRatio = DampingRatioLowBouncy)
-        ),
-        exit = fadeOut()
-    ) {
         LazyColumn(
             contentPadding = PaddingValues(dimensionResource(R.dimen.padding_medium)),
             verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_medium)),
@@ -84,19 +76,9 @@ fun DogParkList(
                     recommended = dogParks,
                     onItemClick = onClick,
                     modifier = Modifier
-                        .animateEnterExit(
-                            enter = slideInVertically(
-                                animationSpec = spring(
-                                    stiffness = Spring.StiffnessVeryLow,
-                                    dampingRatio = DampingRatioLowBouncy
-                                ),
-                                initialOffsetY = { it * (dogParks.id + 1) } // staggered entrance
-                            )
-                        )
                 )
             }
         }
-    }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -285,14 +267,14 @@ fun DogParkListAndDetail(
 fun DogParkListPreview(){
     MyCityAppTheme{
         Surface{
-            PetFriendlyList(
+            DogParkList(
                 recommended = DogParkDataProvider.getDogParkRecommendation(),
                 onBackPressed = {},
                 onClick = {})
         }
     }
 }
-
+/*
 @Preview
 @Composable
 fun DogParkDetailPreview(){
@@ -318,4 +300,4 @@ fun DogParkListAndDetailPreview(){
                 onBackPressed = {})
         }
     }
-}
+}*/

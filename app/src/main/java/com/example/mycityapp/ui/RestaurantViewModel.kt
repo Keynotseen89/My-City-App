@@ -2,7 +2,6 @@ package com.example.mycityapp.ui
 
 import androidx.lifecycle.ViewModel
 import com.example.mycityapp.data.RestaurantDataProvider
-//import com.example.mycityapp.model.Categories
 import com.example.mycityapp.model.Recommendation
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

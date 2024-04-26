@@ -62,20 +62,12 @@ fun RecommendedList(
     BackHandler {
         onBackPressed()
     }
-    //var scrollState = rememberScrollState()
+    var scrollState = rememberScrollState()
     val visibleState = remember {
         MutableTransitionState(false).apply {
             targetState = true
         }
     }
-    //Fade in entry animation for the entire list
-    AnimatedVisibility(
-        visibleState = visibleState,
-        enter = fadeIn(
-            animationSpec = spring(dampingRatio = Spring.DampingRatioLowBouncy)
-        ),
-        exit = fadeOut()
-    ) {
         LazyColumn(
             contentPadding = PaddingValues(dimensionResource(R.dimen.padding_medium)),
             verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_medium)),
@@ -86,20 +78,9 @@ fun RecommendedList(
                 RecommendedListItem(
                     recommended = recommended,
                     onItemClick = onClick,
-                    modifier = Modifier
-                        .animateEnterExit(
-                            enter = slideInVertically(
-                                animationSpec = spring(
-                                    stiffness = Spring.StiffnessVeryLow,
-                                    dampingRatio = Spring.DampingRatioLowBouncy
-                                ),
-                                initialOffsetY = { it * (recommended.id + 1) }
-                            )
-                        )
                 )
             }
         }
-    }
 }
 
 /**
@@ -230,7 +211,7 @@ fun RecommendedDetail(
     ){
         Column{
             Box{
-                Box{
+                Box(){
                     Image(
                         painter = painterResource(selectedRecommendation.recommendedImageBanner),
                         contentDescription = null,
@@ -319,14 +300,16 @@ fun RecommendedDetailPreview(){
     }
 }
 
-@Preview
+@Preview()
 @Composable
 fun RecommendedListAndDetailPreview(){
-    MyCityAppTheme {
+    MyCityAppTheme() {
         Surface {
             RecommendedListAndDetail(
                 recommended = RecommendationDataProvider.getRecommendation(),
-                selectedRecommendation = RecommendationDataProvider.getRecommendation()[0],
+                selectedRecommendation = RecommendationDataProvider.getRecommendation().getOrElse(0){
+                    RecommendationDataProvider.defaultRecommendation
+                },
                 onClick = {},
                 onBackPressed = {},
                 modifier = Modifier.fillMaxWidth()

@@ -3,7 +3,6 @@ package com.example.mycityapp.ui
 import RecommendedDetail
 import RecommendedList
 import RecommendedListAndDetail
-import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -29,15 +28,17 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.mycityapp.R
 import com.example.mycityapp.data.CategoryDataProvider
+import com.example.mycityapp.utils.ContentType
+import androidx.compose.ui.ExperimentalComposeUiApi
 
 
-enum class CategoryScreen(@StringRes val title: Int){
+/*enum class CategoryScreen(@StringRes val title: Int){
     Start(title = R.string.coffee_shops),
     Restauranst(title = R.string.restaurants),
     DogFriendly(title = R.string.dog_friendly),
     DogParks(title = R.string.dog_parks),
     ShoppingCenter(title = R.string.shopping_center)
-}
+}*/
 
 /**
  * TODO: Finish up AppBar by adding windows size
@@ -82,7 +83,7 @@ fun MyCityAppBar(
         modifier = modifier
     )
 }
-
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MyCityApp(
     windowSize: WindowWidthSizeClass,
@@ -115,21 +116,13 @@ fun MyCityApp(
         topBar = {
             MyCityAppBar(
                 isShowingCategoryListPage = uiState.isShowingCategoryListPage,
-                onBackButtonClick = { viewModel.navigateToRecommendedPage()},//{},//{ viewModel.navigateToCategoryListPage()},
+                onBackButtonClick = { viewModel.navigateToCategoryListPage()},//{},//{ viewModel.navigateToCategoryListPage()},
                 windowSize = windowSize,
             )
         }
     ) { innerPadding ->
         if (contentType == ContentType.ListOnly) {
             if (uiState.isShowingCategoryListPage) {
-                /*CategoryList(
-                    categories = uiState.categoryList,
-                    onClick = {
-                        viewModel.updateCurrentCategory(it)
-                        viewModel.navigateToRecommendedPage()
-                    },
-                    modifier = Modifier.padding(innerPadding)
-                )*/
                 StartScreen(
                     categoryOptions = CategoryDataProvider.getCategory,
                     onClick = {
@@ -138,7 +131,7 @@ fun MyCityApp(
                     },
                     modifier = Modifier
                         .fillMaxSize()
-                        .padding(dimensionResource(R.dimen.padding_medium ))
+                        .padding(dimensionResource(R.dimen.padding_medium))
                 )
             } else if (uiState.currentCategory.id == 1) {
                 if (recommendedUiState.isShowingRecommendedListPage) {
@@ -237,16 +230,9 @@ fun MyCityApp(
                         })
                 }
             }
-        } else if (contentType == ContentType.ListAndDetail) {
+        }
+        if (contentType == ContentType.ListAndDetail) {
             if (uiState.isShowingCategoryListPage) {
-                /*CategoryList(
-                    categories = uiState.categoryList,
-                    onClick = {
-                        viewModel.updateCurrentCategory(it)
-                        viewModel.navigateToRecommendedPage()
-                    },
-                    modifier = Modifier.padding(innerPadding)
-                )*/
                 StartScreen(
                     categoryOptions = CategoryDataProvider.getCategory,
                     onClick = {
@@ -254,10 +240,10 @@ fun MyCityApp(
                         viewModel.navigateToRecommendedPage()
                     },
                     modifier = Modifier
-                        .fillMaxSize()
+                        .fillMaxWidth(1f)
                         .padding(dimensionResource(R.dimen.padding_medium ))
                 )
-            } else if (uiState.currentCategory.id == 1) {
+            }else if(uiState.currentCategory.id == 1) {
                 RecommendedListAndDetail(
                     recommended = recommendedUiState.recommendedList,
                     selectedRecommendation = recommendedUiState.currentRecommended,

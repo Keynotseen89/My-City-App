@@ -6,13 +6,10 @@ import androidx.activity.compose.setContent
 import androidx.compose.material3.Surface
 import androidx.compose.material3.windowsizeclass.ExperimentalMaterial3WindowSizeClassApi
 import androidx.compose.material3.windowsizeclass.calculateWindowSizeClass
-import com.example.mycityapp.data.CategoryDataProvider
 import com.example.mycityapp.ui.MyCityApp
-//import com.example.mycityapp.ui.MyCityApp
-import com.example.mycityapp.ui.StartScreen
 import com.example.mycityapp.ui.theme.MyCityAppTheme
 
-@ExperimentalMaterial3WindowSizeClassApi
+@OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,9 +18,8 @@ class MainActivity : ComponentActivity() {
                 Surface {
                     val windowSize = calculateWindowSizeClass(this)
                     MyCityApp(
-                        windowSize = windowSize.widthSizeClass
+                        windowSize = windowSize.widthSizeClass,
                     )
-                    //StartScreen(categoryOptions = CategoryDataProvider.getCategory);
                 }
             }
         }

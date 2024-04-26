@@ -1,14 +1,8 @@
 package com.example.mycityapp.ui
 
 import androidx.activity.compose.BackHandler
-import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.animation.core.MutableTransitionState
-import androidx.compose.animation.core.Spring
-import androidx.compose.animation.core.spring
-import androidx.compose.animation.fadeIn
-import androidx.compose.animation.fadeOut
-import androidx.compose.animation.slideInVertically
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -46,9 +40,12 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.mycityapp.R
+import com.example.mycityapp.data.CategoryDataProvider
 import com.example.mycityapp.data.RestaurantDataProvider
+import com.example.mycityapp.model.Categories
 import com.example.mycityapp.model.Recommendation
 import com.example.mycityapp.ui.theme.MyCityAppTheme
+
 @OptIn(ExperimentalAnimationApi::class)
 @Composable
 fun RestaurantList(
@@ -66,14 +63,6 @@ fun RestaurantList(
             targetState = true
         }
     }
-    //Fade in entry animation for the entire list
-    AnimatedVisibility(
-        visibleState = visibleState,
-        enter = fadeIn(
-            animationSpec = spring(dampingRatio = Spring.DampingRatioLowBouncy)
-        ),
-        exit = fadeOut()
-    ) {
         LazyColumn(
             contentPadding = PaddingValues(dimensionResource(R.dimen.padding_medium)),
             verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_medium)),
@@ -84,19 +73,9 @@ fun RestaurantList(
                     recommended = restaurants,
                     onItemClick = onClick,
                     modifier = Modifier
-                        .animateEnterExit(
-                            enter = slideInVertically(
-                                animationSpec = spring(
-                                    stiffness = Spring.StiffnessVeryLow,
-                                    dampingRatio = Spring.DampingRatioLowBouncy
-                                ),
-                                initialOffsetY = { it * (restaurants.id + 1) }
-                            )
-                        )
                 )
             }
         }
-    }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -278,6 +257,44 @@ fun RestaurantListAndDetail(
         )
     }
 }
+/*
+@Composable
+fun RestaurantMenuListAndDetail(
+    recommendedMenu: List<Categories>,
+    onMenuClick: (Categories) -> Unit,
+    recommended: List<Recommendation>,
+    selectedRecommendation: Recommendation,
+    onClick: (Recommendation) -> Unit,
+    onBackPressed: () -> Unit,
+    modifier: Modifier = Modifier
+){
+    BackHandler {
+        onBackPressed()
+    }
+    Row(
+        modifier = modifier
+    ){
+        StartScreen(
+            categoryOptions = recommendedMenu,
+            onClick = onMenuClick,
+            modifier = Modifier.weight(1f),
+        )
+        RestaurantList(
+            recommended = recommended,
+            modifier = Modifier.weight(2f),
+            onBackPressed = onBackPressed,
+            onClick = onClick
+        )
+
+        RestaurantDetail(
+            selectedRecommendation = selectedRecommendation,
+            modifier = Modifier.weight(3f),
+            onBackPressed = onBackPressed
+        )
+    }
+}
+ */
+
 @Preview
 @Composable
 fun RestaurantListPreview(){
@@ -311,10 +328,33 @@ fun RestaurantListAndDetailPreview(){
         Surface {
             RestaurantListAndDetail(
                 recommended = RestaurantDataProvider.getRecommendedRestaurant(),
-                selectedRecommendation = RestaurantDataProvider.getRecommendedRestaurant()[0],
+                selectedRecommendation = RestaurantDataProvider.getRecommendedRestaurant().getOrElse(0){
+                    RestaurantDataProvider.defaultRestaurant
+                },
                 onClick = {},
                 onBackPressed = {},
-                modifier = Modifier.fillMaxWidth())
+                modifier = Modifier.fillMaxWidth()
+            )
         }
     }
 }
+/*
+@Preview
+@Composable
+fun RestaurantMenuListAndDetailPreview(){
+    MyCityAppTheme{
+        Surface {
+            RestaurantMenuListAndDetail(
+                recommendedMenu = CategoryDataProvider.getCategory,
+                onMenuClick = {},
+                recommended = RestaurantDataProvider.getRecommendedRestaurant(),
+                selectedRecommendation = RestaurantDataProvider.getRecommendedRestaurant().getOrElse(0){
+                    RestaurantDataProvider.defaultRestaurant
+                },
+                onClick = {},
+                onBackPressed = {},
+                modifier = Modifier.fillMaxWidth()
+            )
+        }
+    }
+}*/
